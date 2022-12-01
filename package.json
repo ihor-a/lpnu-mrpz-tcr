@@ -1,0 +1,17 @@
+{
+  "name": "mrpz-tcr",
+  "version": "1.0.0",
+  "description": "Education project",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server --config json-server/json-server.json json-server/db.json",
+    "client": "cd client; yarn start",
+    "dev": "concurrently \"yarn server\" \"yarn client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "json-server": "^0.17.1"
+  }
+}
