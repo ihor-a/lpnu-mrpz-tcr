@@ -11,9 +11,9 @@ const CategoryList = (props) => {
         <List {...props} filters={categoryFilters}>
             <Datagrid>
                 <TextField source='id' />
-                <TextField source='name' />
-                <TextField source='description' />
-                <EditButton basePath='/categories' />
+                <TextField source='name' label='Назва' />
+                <TextField source='description' label='Опис' />
+                <EditButton basePath='/categories' label='Редагувати' />
             </Datagrid>
         </List>
     )

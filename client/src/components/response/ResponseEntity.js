@@ -1,6 +1,7 @@
 import React from 'react';
 import { SimpleForm, TextInput, SelectInput, ReferenceInput, DateInput } from "react-admin";
 import { RichTextInput } from 'ra-input-rich-text';
+import StatusSelect from "../request/StatusSelect";
 
 const ResponseEntity = (props) => {
     let idField = '';
@@ -8,24 +9,16 @@ const ResponseEntity = (props) => {
         idField = <TextInput disabled source='id' />;
     }
 
-    const getStatusList = () => {
-        return [
-            { id: 'open', name: 'Open' },
-            { id: 'inProgress', name: 'In Progress' },
-            { id: 'solved', name: 'Solved' }
-        ];
-    }
-
     return (
         <SimpleForm>
             {idField}
-            <TextInput source='title' required style={{width: '50%'}} />
+            <TextInput source='title' required style={{width: '50%'}} label='Назва'/>
             <ReferenceInput source='categories_id' reference='categories'>
-                <SelectInput optionText='name' required/>
+                <SelectInput optionText='name' required label='Категорії'/>
             </ReferenceInput>
-            <SelectInput source='status' required choices={getStatusList()}/>
-            <DateInput source='solved_on' />
-            <RichTextInput source='response' />
+            <StatusSelect isListMode={false} />
+            <DateInput source='solved_on' label='Вирішено'/>
+            <RichTextInput source='response' label='Відповідь'/>
         </SimpleForm>
     );
 };

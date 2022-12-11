@@ -11,12 +11,12 @@ const RequestEntity = (props) => {
     return (
         <SimpleForm>
             {idField}
-            <TextInput disabled source="created_at" defaultValue={(new Date()).toLocaleDateString()}/>
-            <TextInput source='title' required style={{width: '50%'}} />
+            <TextInput disabled source="created_at" defaultValue={(new Date()).toLocaleDateString()} label='Створено'/>
+            <TextInput source='title' required style={{width: '50%'}} label='Назва' />
             <ReferenceInput source='categories_id' reference='categories'>
-                <SelectInput optionText='name' required/>
+                <SelectInput optionText='name' required label='Категорії'/>
             </ReferenceInput>
-            <RichTextInput source='description' validate={required()} />
+            <RichTextInput source='description' validate={required()} label='Опис'/>
         </SimpleForm>
     );
 };

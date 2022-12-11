@@ -19,19 +19,19 @@ const RequestList = (props) => {
 
     const RequestFilters = [
         <SearchInput source="title" alwaysOn />,
-        <SelectInput source="categories_id" choices={data} alwaysOn />
+        <SelectInput source="categories_id" choices={data} alwaysOn label='Категорії' />
     ];
 
     return (
         <List {...props} filters={RequestFilters}>
             <Datagrid>
                 <TextField source='id' />
-                <TextField source='created_at' />
-                <TextField source='title' />
-                <SelectField source="categories_id" choices={data}/>
-                <TextField source='solved_on' />
-                <EditButton basePath='/requests' />
-                <ShowButton basePath='/requests' />
+                <TextField source='created_at' label='Створено' />
+                <TextField source='title' label='Назва' />
+                <SelectField source="categories_id" choices={data} label='Категорії' />
+                <TextField source='solved_on' label='Вирішено' />
+                <EditButton basePath='/requests' label='Редагувати' />
+                <ShowButton basePath='/requests' label='Перегляд' />
             </Datagrid>
         </List>
     )

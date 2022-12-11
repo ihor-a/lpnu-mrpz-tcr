@@ -9,28 +9,28 @@ const ResponseList = (props) => {
 
     const getStatusList = () => {
         return [
-            { id: 'open', name: 'Open' },
-            { id: 'inProgress', name: 'In Progress' },
-            { id: 'solved', name: 'Solved' }
+            { id: 'open', name: 'Відкрито' },
+            { id: 'inProgress', name: 'В роботі' },
+            { id: 'solved', name: 'Вирішено' }
         ];
     }
 
     const RequestFilters = [
         <SearchInput source="title" alwaysOn />,
-        <SelectInput source="categories_id" choices={data} alwaysOn />,
-        <SelectInput source="status" choices={getStatusList()} alwaysOn />
+        <SelectInput source="categories_id" choices={data} alwaysOn label='Категорії' />,
+        <SelectInput source="status" choices={getStatusList()} alwaysOn label='Статус' />,
     ];
 
     return (
         <List {...props} filters={RequestFilters}>
             <Datagrid>
                 <TextField source='id' />
-                <TextField source='created_at' />
-                <TextField source='title' />
-                <SelectField source="categories_id" choices={data}/>
-                <SelectField source="status" choices={getStatusList()}/>
-                <TextField source='solved_on' />
-                <EditButton basePath='/responses' />
+                <TextField source='created_at' label='Створено' />
+                <TextField source='title' label='Назва' />
+                <SelectField source="categories_id" choices={data} label='Категорії' />
+                <SelectField source="status" choices={getStatusList()} label='Статус' />
+                <TextField source='solved_on' label='Вирішено' />
+                <EditButton basePath='/responses' label='Редагувати' />
             </Datagrid>
         </List>
     )

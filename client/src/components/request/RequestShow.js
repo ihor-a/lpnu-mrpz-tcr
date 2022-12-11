@@ -10,41 +10,35 @@ import {
     useGetList
 } from 'react-admin';
 import { Grid } from "@material-ui/core";
+import StatusSelect from "./StatusSelect";
 
 const RequestShow = () => {
     const { data } = useGetList('categories');
-    const getStatusList = () => {
-        return [
-            { id: 'open', name: 'Open' },
-            { id: 'inProgress', name: 'In Progress' },
-            { id: 'solved', name: 'Solved' }
-        ];
-    }
 
     return (
         <Show>
             <TabbedShowLayout>
-                <Tab label="Request Description">
+                <Tab label="Опис Запиту">
                     <Grid container spacing={1}>
                         <Grid item xs={12}>
                             <SimpleShowLayout>
-                                <TextField source="title" />
-                                <TextField source="created_at" />
-                                <SelectField source="categories_id" choices={data}/>
-                                <RichTextField source="description" />
+                                <TextField source="title" label='Назва'/>
+                                <TextField source="created_at" label='Створено'/>
+                                <SelectField source="categories_id" choices={data} label='Категорії'/>
+                                <RichTextField source="description" label='Опис' />
                             </SimpleShowLayout>
                         </Grid>
                     </Grid>
                 </Tab>
-                <Tab label="Response">
+                <Tab label="Відповідь">
                     <Grid container spacing={1}>
                         <Grid item xs={12}>
                             <SimpleShowLayout>
-                                <TextField source="title" />
-                                <SelectField source="categories_id" choices={data}/>
-                                <SelectField source="status" choices={getStatusList()}/>
-                                <TextField source="solved_on" />
-                                <RichTextField source="response" />
+                                <TextField source="title"  label='Назва'/>
+                                <SelectField source="categories_id" choices={data} label='Категорії' />
+                                <StatusSelect isListMode={true} />
+                                <TextField source="solved_on" label='Вирішено' />
+                                <RichTextField source="response" label='Відповідь' />
                             </SimpleShowLayout>
                         </Grid>
                     </Grid>

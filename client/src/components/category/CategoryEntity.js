@@ -10,8 +10,8 @@ const CategoryEntity = (props) => {
     return (
         <SimpleForm>
             {idField}
-            <TextInput source='name' required style={{width: '50%'}} />
-            <TextInput source='description' required style={{width: '50%'}} />
+            <TextInput source='name' required style={{width: '50%'}} label='Назва' />
+            <TextInput source='description' required style={{width: '50%'}} label='Опис' />
         </SimpleForm>
     );
 };

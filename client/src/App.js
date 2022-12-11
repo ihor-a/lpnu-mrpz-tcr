@@ -19,20 +19,20 @@ function App() {
         <div style={{width: '80%'}}>
         <Admin dataProvider={UploadPictureDataProvider}>
             <Resource
-                name='categories' icon={CategoryIcon}
+                name='categories' icon={CategoryIcon} options={{ label: 'Категорії' }}
                 list={CategoryList}
                 create={CategoryCreate}
                 edit={CategoryEdit}
             />
             <Resource
-                name='requests' icon={TextSnippetIcon}
+                name='requests' icon={TextSnippetIcon} options={{ label: 'Запити' }}
                 list={RequestList}
                 create={RequestCreate}
                 edit={RequestEdit}
                 show={RequestShow}
             />
             <Resource
-                name='responses' icon={QuestionAnswerIcon}
+                name='responses' icon={QuestionAnswerIcon} options={{ label: 'Відповіді' }}
                 list={ResponseList}
                 edit={ResponseEdit}
             />
